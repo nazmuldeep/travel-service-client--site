@@ -1,11 +1,42 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaGoogle, FaFacebook, FaGithub } from 'react-icons/fa';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
+import { useTitle } from '../../../Hook/useTitle';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
+    useTitle('Login')
+    const googleProvider = new GoogleAuthProvider()
+    const gitProvider = new GithubAuthProvider()
+    const { signIn, setLoading, setUser, providerLogin, verifyEmail } = useContext(AuthContext);
+    const handleGithubSignIn = () => {
+        providerLogin(gitProvider)
+            .then(result => {
+                const user = result.user;
+                navigate(from, { replace: true });
+                console.log(user);
+
+            })
+            .catch(error => console.error(error))
+
+    }
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                verifyEmail();
+                console.log(user);
+                navigate(from, { replace: true });
+            })
+            .catch(error => console.error(error))
+    }
+
+
     const [error, setError] = useState('');
-    const { signIn, setLoading, setUser } = useContext(AuthContext);
+    const { } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
@@ -22,11 +53,12 @@ const Login = () => {
                 form.reset();
                 setError('');
                 navigate(from, { replace: true });
-
+                toast.success(' user name or password wrong')
             })
             .catch(error => {
                 console.error(error)
                 setError(error.message);
+                toast.error(' user name or password wrong')
             })
             .finally(() => {
                 setLoading(false);
@@ -66,14 +98,14 @@ const Login = () => {
                         <button className="btn btn-accent"><Link to={'/register'}>Register</Link> </button>
                         <Link> </Link>
                         <div className='card-body flex flex-row justify-around '>
-                            <div className='bg-green-200 p-5 rounded-full'><FaGoogle /></div>
-                            <div className='bg-cyan-200 p-5 rounded-full'><FaFacebook /></div>
-                            <div className='bg-gray-500 p-5 rounded-full'><FaGithub /></div>
+                            <div onClick={handleGoogleSignIn} className='bg-green-200 p-5 rounded-full'><FaGoogle /></div>
+                            <div onClick={handleGithubSignIn} className='bg-gray-500 p-5 rounded-full'><FaGithub /></div>
 
                         </div>
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };

@@ -1,26 +1,28 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
+import useTitle from '../../../Hooks/useTitle';
 
 const Register = () => {
+    useTitle('Register')
 
     const [error, setError] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
-    const { createUser, setUser, emailUser, setEmailUser } = useContext(AuthContext);
+    const { createUser, setUser, emailUser, user } = useContext(AuthContext);
 
 
 
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
-        const name = form.name.value;
-        const photoURL = form.photoUrl.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photoURL, email, password);
-
-        fetch('http://localhost:5000/users', {
+        fetch('https://assignment-server-11-taupe.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -28,7 +30,12 @@ const Register = () => {
             body: JSON.stringify(emailUser)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(
+                data => {
+                    console.log(data)
+                    navigate(from, { replace: true })
+                }
+            )
 
 
 
@@ -36,14 +43,15 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                setUser(user)
-                console.log(emailUser);
+                setUser(user);
                 setError('');
                 form.reset();
                 toast.success('Please verify your email address.')
+
             })
             .catch(err => {
                 setError('User All Ready Exist');
+                toast.error('User All Ready Exist')
             });
     }
 
@@ -51,10 +59,9 @@ const Register = () => {
         const FieldName = event.target.name;
         const FieldValue = event.target.value;
         console.log(FieldName, FieldValue);
-        const newUser = { ...emailUser };
+        const newUser = { ...user };
         newUser[FieldName] = FieldValue;
-        setEmailUser(newUser);
-
+        setUser(newUser);
     }
 
     return (
@@ -97,6 +104,7 @@ const Register = () => {
                     </form>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };

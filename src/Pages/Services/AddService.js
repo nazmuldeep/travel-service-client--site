@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
+import useTitle from '../../Hooks/useTitle';
 
 const AddService = () => {
+    useTitle('Add Service')
     const current = new Date();
     const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}/${current.toLocaleTimeString()}`
+    const [addService, setAddService] = useState({ time: date })
 
-    const [addService, setAddService] = useState({})
 
     const handleSubmit = event => {
         event.preventDefault();
-        fetch('http://localhost:5000/users', {
+        const form = event.target;
+        fetch('https://assignment-server-11-taupe.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -16,8 +19,10 @@ const AddService = () => {
             body: JSON.stringify(addService)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
-
+            .then(data => {
+                console.log(data)
+                form.reset()
+            })
     }
     const handleInputBlur = event => {
         const FieldName = event.target.name;
