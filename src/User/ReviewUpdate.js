@@ -37,7 +37,7 @@ const ReviewUpdate = () => {
     }
     return (
         <div>
-            <h1>Please Update Your Review</h1>
+            <h1>Update you review</h1>
             <p></p>
             <form onSubmit={handleSubmit} className="card-body w-96 my-24 mx-auto">
                 <h1 className="text-5xl text-white text-center font-bold">Review Here</h1>

@@ -17,13 +17,13 @@ const HearderService = ({ service }) => {
             <div className=" absolute w-full top-2/4">
                 <div className="flex justify-between w-10/12 mx-10 my-4">
 
-                    <h1 className='text-2xl text-orange-400'>Review: {rating}</h1>
+                    <h1 className='text-xl bg-cyan-400 text-black'>Review: {rating}</h1>
                 </div>
             </div>
             <div className=" absolute w-full top-3/4">
                 <div className="flex justify-between w-10/12 mx-10 my-4">
-                    <button className='btn btn-info'><Link to={`/singleService/${_id}`}>view Post</Link></button>
-                    <button className='btn btn-info'><Link to={`/singleService/${_id}`}>Review</Link></button>
+                    <button className='btn  hover:bg-cyan-600'><Link to={`/singleService/${_id}`}>View more</Link></button>
+                    <button className='btn hover:bg-cyan-600'><Link to={`/singleService/${_id}`}>Review</Link></button>
                 </div>
             </div>
         </div>

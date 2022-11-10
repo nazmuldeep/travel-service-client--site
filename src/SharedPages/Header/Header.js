@@ -20,6 +20,7 @@ const Header = () => {
             {
                 user?.uid ?
                     <>
+                        <li><Link className='font-semibold' to='/myreviews' >My Review</Link></li>
 
                         <li><Link className='font-semibold' to='/login' onClick={handleLogOut}>Logout</Link></li>
                     </> :

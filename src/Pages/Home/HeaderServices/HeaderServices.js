@@ -1,36 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import img1 from './../../../image/1.jpg';
-import img2 from './../../../image/2.jpg';
-import img3 from './../../../image/3.jpg'
-import HearderService from './HeaderService';
-const BannerData = [
-    {
-        image: img1,
-        prev: 6,
-        _id: 1,
-    },
-    {
-        image: img2,
-        prev: 1,
-        _id: 2,
-    },
-    {
-        image: img3,
-        prev: 2,
-        _id: 3,
-    }
-]
+import HeaderService from './HeaderService'
+
+
+
 const HeaderServices = () => {
+    const [serviceData, setserviceData] = useState([]);
+    useEffect(() => {
+        fetch('https://travel-services-server-site.vercel.app/service')
+            .then(res => res.json())
+            .then(data => setserviceData(data))
+    }, [])
+
     return (
         <>
             <div className='my-16'>
-                <h1 className='text-white text-5xl text-center font-semibold'>Come Get Involved With Us</h1>
-                <h1 className='text-white text-2xl text-center font-semibold'> Here are some New and updated photos from our Innovations  </h1>
+                <h1 className='text-white text-5xl text-center font-semibold'>Thanks For visting our site</h1>
+                <h1 className='text-white text-2xl text-center font-semibold'> Here are some New travel places and Get offer this ocation  </h1>
             </div>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 mt-5 sm:grid-cols-1 gap-5'>
                 {
-                    BannerData.map(service => <HearderService key={service._id} service={service}></HearderService>)
+                    serviceData.map(service => <HeaderService key={service._id} service={service}></HeaderService>)
                 }
             </div>
             <div className='m-auto text-center mt-12'>

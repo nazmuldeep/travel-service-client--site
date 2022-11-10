@@ -4,7 +4,7 @@ import { FaUserAlt } from "react-icons/fa";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 
-const SingleReview = ({ review }) => {
+const SingleReview = ({ review, handleDelete }) => {
     const { date, servicePhotoUrl, location, userphotoURL, currentReview } = review
 
     return (
@@ -31,7 +31,7 @@ const SingleReview = ({ review }) => {
             </td>
             <td>{currentReview.review}</td>
             <td><button className='btn btn-warning'><Link to={`/update/${review._id}`}>Update</Link></button></td>
-            <td><button className='btn btn-error'><Link>Delete</Link></button></td>
+            <td><button onClick={handleDelete} className='btn btn-error'>Delete</button></td>
         </tr>
 
     );

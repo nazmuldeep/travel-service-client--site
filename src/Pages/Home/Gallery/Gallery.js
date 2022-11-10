@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import SingleGallary from './SingleGallary';
 
+
 const Gallery = () => {
     const [homeReview, setHomeReview] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://travel-services-server-site.vercel.app/reviews')
             .then(res => res.json())
             .then(data => setHomeReview(data))
 

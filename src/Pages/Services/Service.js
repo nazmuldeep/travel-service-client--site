@@ -19,7 +19,7 @@ const Service = ({ allService }) => {
                     </p>
                     <div className="card-actions justify-end">
                         <button className='btn btn-info'><Link to={`/singleService/${_id}`}>Read More</Link></button>
-                        <button className='btn btn-info'><Link to={`/singleService/${_id}`}>make a review</Link></button>
+                        <button className='btn btn-info'><Link to={`/singleService/${_id}`}>Add review</Link></button>
                     </div>
                 </div>
             </div>
