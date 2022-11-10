@@ -6,10 +6,15 @@ import useTitle from '../Hook/useTitle';
 const ReviewUpdate = () => {
     useTitle('Update Review')
     const updateReview = useLoaderData()
+
     const [currentReview, setCurrentReview] = useState([])
-    console.log(currentReview);
+
+    // time
     const current = new Date();
-    const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}/${current.toLocaleTimeString()}`
+    const date = `${current.getDate()
+        }/${current.getMonth() + 1}/${current.getFullYear()} /${current.toLocaleTimeString()}`
+
+    // update file
     const review = {
         currentReview,
         date: date,
@@ -27,6 +32,10 @@ const ReviewUpdate = () => {
             .then(res => res.json())
             .then(data => console.log(data))
     }
+    // updating file
+
+
+
     const handleChange = event => {
         const FieldName = event.target.name;
         const FieldValue = event.target.value;
@@ -37,7 +46,7 @@ const ReviewUpdate = () => {
     }
     return (
         <div>
-            <h1>Update you review</h1>
+            <h1>Please Update Your Review</h1>
             <p></p>
             <form onSubmit={handleSubmit} className="card-body w-96 my-24 mx-auto">
                 <h1 className="text-5xl text-white text-center font-bold">Review Here</h1>
