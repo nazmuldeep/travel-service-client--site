@@ -4,8 +4,9 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
-import { useTitle } from '../../../Hook/useTitle';
+// import { useTitle } from '../../../Hook/useTitle'
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import useTitle from '../../../Hook/useTitle';
 
 const Login = () => {
     useTitle('Login')
@@ -36,7 +37,7 @@ const Login = () => {
 
 
     const [error, setError] = useState('');
-    const { } = useContext(AuthContext);
+
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';

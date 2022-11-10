@@ -3,7 +3,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
-import useTitle from '../../../Hooks/useTitle';
+import useTitle from '../../../Hook/useTitle';
+
 
 const Register = () => {
     useTitle('Register')
