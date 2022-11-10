@@ -67,7 +67,12 @@ const router = createBrowserRouter([
                 path: '/singleService/:id',
                 loader: async ({ params }) => fetch(`https://travel-services-server-site.vercel.app/services/${params.id}`),
                 element: <SingleService></SingleService>
-            }
+            },
+            {
+                path: '/update/:id',
+                element: <PrivetRout><ReviewUpdate></ReviewUpdate></PrivetRout>,
+                loader: ({ params }) => fetch(`https://travel-services-server-site.vercel.app/update/${params.id}`)
+            },
         ]
     }
 ])

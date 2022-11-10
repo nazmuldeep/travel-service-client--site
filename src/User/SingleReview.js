@@ -7,6 +7,8 @@ import 'react-photo-view/dist/react-photo-view.css';
 const SingleReview = ({ review, handleDelete }) => {
     const { date, servicePhotoUrl, location, userphotoURL, currentReview } = review
 
+
+
     return (
 
         <tr>
@@ -31,7 +33,7 @@ const SingleReview = ({ review, handleDelete }) => {
             </td>
             <td>{currentReview.review}</td>
             <td><button className='btn btn-warning'><Link to={`/update/${review._id}`}>Update</Link></button></td>
-            <td><button onClick={handleDelete} className='btn btn-error'>Delete</button></td>
+            <td><button onClick={() => handleDelete(review._id)} className='btn btn-error'>Delete</button></td>
         </tr>
 
     );
