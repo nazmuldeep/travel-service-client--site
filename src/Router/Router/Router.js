@@ -6,9 +6,11 @@ import Register from "../../Pages/Login-Register/Register/Register";
 import AddService from "../../Pages/Services/AddService";
 import Services from "../../Pages/Services/Services";
 import SingleService from "../../Pages/Services/SingleService";
-import MyReview from "../../Pages/User/MyReview";
-import ReviewUpdate from "../../Pages/User/ReviewUpdate";
-import ErrorPage from "../../ShearPages/ErrorPage/ErrorPage";
+import ErrorPage from "../../SharedPages/ErrorPage/ErrorPage";
+
+
+import MyReview from "../../User/MyReview";
+import ReviewUpdate from "../../User/ReviewUpdate";
 import PrivetRout from "../PrivetRout/PrivetRout";
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../../Layout/Main");
@@ -55,7 +57,7 @@ const router = createBrowserRouter([
             {
                 path: '/update/:id',
                 element: <ReviewUpdate></ReviewUpdate>,
-                loader: ({ params }) => fetch(`https://travel-services-server-site.vercel.app//${params.id}`)
+                loader: ({ params }) => fetch(`https://travel-services-server-site.vercel.app/${params.id}`)
             },
             {
                 path: '/myreviews',
@@ -63,7 +65,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/singleService/:id',
-                loader: async ({ params }) => fetch(`https://travel-services-server-site.vercel.app//services/${params.id}`),
+                loader: async ({ params }) => fetch(`https://travel-services-server-site.vercel.app/services/${params.id}`),
                 element: <SingleService></SingleService>
             }
         ]

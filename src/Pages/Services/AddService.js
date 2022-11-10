@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import useTitle from '../../Hooks/useTitle';
+import useTitle from '../../Hook/useTitle';
+
 
 const AddService = () => {
     useTitle('Add Service')
@@ -11,7 +12,7 @@ const AddService = () => {
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
-        fetch('https://assignment-server-11-taupe.vercel.app/services', {
+        fetch('https://travel-services-server-site.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

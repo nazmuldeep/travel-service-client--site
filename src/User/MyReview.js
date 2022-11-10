@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
-import useTitle from '../../Hooks/useTitle';
+import { AuthContext } from '../Context/AuthProvider/AuthProvider';
+import useTitle from '../Hook/useTitle';
+
+
 import SingleReview from './SingleReview';
 
 const MyReview = () => {
@@ -9,7 +11,7 @@ const MyReview = () => {
     console.log(user);
     const [myReviews, setMyReviews] = useState([])
     useEffect(() => {
-        fetch(`https://assignment-server-11-taupe.vercel.app/user_reviews/${user.email}`)
+        fetch(`https://travel-services-server-site.vercel.app/user_reviews/${user.email}`)
             .then(res => res.json())
             .then(data => setMyReviews(data))
     }, [])

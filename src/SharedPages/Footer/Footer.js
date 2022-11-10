@@ -8,7 +8,8 @@ const Footer = () => {
         <footer className="footer flex justify-around p-10 bg-neutral m-auto">
             <div>
                 <img src={logo} className='w-16 h-16' alt="" />
-                <p>Wild-Live <br />Explore something new</p>
+                <p>Travel Services <br />Explore something new</p>
+                <p>Copyright@2022 Travel service</p>
             </div>
             <div>
                 <span className="footer-title">Social</span>

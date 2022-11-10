@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import useTitle from '../../Hooks/useTitle';
+import useTitle from '../Hook/useTitle';
+
 
 const ReviewUpdate = () => {
     useTitle('Update Review')
@@ -16,7 +17,7 @@ const ReviewUpdate = () => {
     const handleSubmit = event => {
 
         event.preventDefault()
-        fetch(`https://assignment-server-11-taupe.vercel.app/${updateReview._id}`, {
+        fetch(`https://travel-services-server-site.vercel.app/${updateReview._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

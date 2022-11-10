@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
-import useTitle from '../../Hooks/useTitle';
+import useTitle from '../../Hook/useTitle';
+
 import ShowServiceReview from './ShowServiceReview';
 
 const SingleService = () => {
@@ -16,7 +17,7 @@ const SingleService = () => {
     const [sreverReviw, setServerReviw] = useState([])
 
     useEffect(() => {
-        fetch(`https://assignment-server-11-taupe.vercel.app/reviews/${_id}`)
+        fetch(`https://travel-services-server-site.vercel.app/reviews/${_id}`)
             .then(res => res.json())
             .then(data => setServerReviw(data))
     }, [])
@@ -35,7 +36,7 @@ const SingleService = () => {
     const handleSubmit = event => {
 
         event.preventDefault()
-        fetch('https://assignment-server-11-taupe.vercel.app/reviews', {
+        fetch('https://travel-services-server-site.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

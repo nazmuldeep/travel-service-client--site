@@ -23,7 +23,7 @@ const Register = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        fetch('https://assignment-server-11-taupe.vercel.app/users', {
+        fetch('https://travel-services-server-site.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

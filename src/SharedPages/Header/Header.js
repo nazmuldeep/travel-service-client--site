@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUserAlt } from "react-icons/fa";
+// import logo from '../../image/images.png';
 
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 const Header = () => {
