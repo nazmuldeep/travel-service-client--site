@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUserAlt } from "react-icons/fa";
-// import logo from '../../image/images.png';
+import logo from '../../image/images.png';
 
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 const Header = () => {
@@ -33,7 +33,7 @@ const Header = () => {
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
-                <div className="dropdown">:
+                <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
@@ -50,10 +50,16 @@ const Header = () => {
             </div>
             <div className="navbar-end">
                 <div className='flex'>
-                    {/* <img title='name' className='w-5 h-5 mr-5' src={logo} alt="Something wrong" /> */}
-                    <p className='mr-5'><FaUserAlt /></p>
-                    <p className='mr-5'>{name}</p>
+                    {
+                        user?.photoURL ? <img title='name' className='w-5 h-5 mr-5' src='' alt="" /> :
+                            <p className='mr-5'><FaUserAlt /></p>
+                    }
+                    <p className='mr-5'>{user?.displayName}</p>
                 </div>
+
+
+
+
             </div>
         </div>
     );
