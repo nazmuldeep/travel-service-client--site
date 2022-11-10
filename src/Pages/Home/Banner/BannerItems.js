@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './bannerItems.css'
+import './BannerItems.css'
 const BannerItmes = ({ slider }) => {
     const { image, prev, id, next, rating, location, _id } = slider
     return (
