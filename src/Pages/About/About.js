@@ -6,7 +6,7 @@ const About = () => {
     return (
         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
             <div className="mx-auto mb-10 lg:max-w-xl sm:text-center">
-                <p className="inline-block px-3 py-px mb-4 text-3xl font-semibold tracking-wider text-gray-200  uppercase rounded-full bg-teal-accent-400">
+                <p className="inline-block px-3 py-px mb-4 text-3xl font-semibold tracking-wider text-black  uppercase rounded-full bg-teal-accent-400">
                     Here is our team membear in our travel service
                 </p>
                 <p className="text-base text-white md:text-lg">

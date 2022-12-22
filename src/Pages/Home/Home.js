@@ -7,7 +7,7 @@ import HeaderServices from './HeaderServices/HeaderServices';
 
 const Home = () => {
     return (
-        <div className='bg-gray-600'>
+        <div className='bg-white'>
             <Banner></Banner>
             <HeaderServices></HeaderServices>
             <Gallery></Gallery>
