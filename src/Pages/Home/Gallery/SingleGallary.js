@@ -3,7 +3,7 @@ import { FaUserAlt } from 'react-icons/fa';
 
 const SingleGallary = ({ hReview }) => {
     const { date, userphotoURL, currentReview } = hReview
-    const { review } = currentReview
+    // const { review } = currentReview
     return (
         <div className='pic'>
             <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
@@ -27,7 +27,7 @@ const SingleGallary = ({ hReview }) => {
 
                 </div>
                 <div className="p-4 space-y-2 text-sm dark:text-gray-400">
-                    <p>{review}</p>
+                    <p>{currentReview?.review}</p>
                 </div>
             </div>
         </div>

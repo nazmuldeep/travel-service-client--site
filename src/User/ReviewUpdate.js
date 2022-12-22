@@ -22,7 +22,7 @@ const ReviewUpdate = () => {
     const handleSubmit = event => {
 
         event.preventDefault()
-        fetch(`https://travel-services-server-site.vercel.app/${updateReview._id}`, {
+        fetch(`https://travel-services-server-site.vercel.app/update/${updateReview._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
